@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PINCode</string>
     <string name="pin_hint">Введите код</string>
+    <string name="correct">Код верен</string>
 </resources>
