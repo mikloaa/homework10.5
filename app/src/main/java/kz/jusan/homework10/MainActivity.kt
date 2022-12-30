@@ -7,8 +7,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kotlin.math.PI
 
 const val  CORRECT_PIN = "1567"
+const val PIN_LENGTH = 4
 class MainActivity : AppCompatActivity() {
     private var pinText  = ""
 
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val btnOk: Button = findViewById(R.id.btn_OK)
         btnOk.setOnClickListener{checkIfPinIsCorrect() }
     }
-    fun checkIfPinIsCorrect(){
+    private fun checkIfPinIsCorrect(){
         if (pinText == CORRECT_PIN){
             Toast.makeText(this, R.string.correct, Toast.LENGTH_LONG).show()
         }
@@ -83,6 +85,9 @@ class MainActivity : AppCompatActivity() {
     private fun updatePinTextView(){
 
         val tvPin:TextView = findViewById(R.id.tv_pin)
+        if (pinText.length> PIN_LENGTH){
+            pinText = pinText.substring(0, PIN_LENGTH)
+        }
         tvPin.text = pinText
     }
 }
